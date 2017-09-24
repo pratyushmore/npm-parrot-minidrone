@@ -50,6 +50,18 @@ process.stdin.on('keypress', (ch, key) => {
     case 'd':
         flightParams.yaw = inputSensitivity;
         break;
+		case 'u':
+				drone.animate("flipFront");
+				break;
+		case 'j':
+				drone.animate("flipBack");
+				break;
+		case 'h':
+				drone.animate("flipLeft");
+				break;
+		case 'k':
+				drone.animate("flipRight");
+				break;
     case 't':
         drone.takeoffOrLand();
         break;

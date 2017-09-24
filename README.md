@@ -1,65 +1,49 @@
-![Travis Status](https://travis-ci.org/fetherston/npm-parrot-minidrone.svg?branch=master)
-# Fly Parrot MiniDrones with Node
-This package wraps the BlueTooth low energy library Noble to expose a simple API for flying [Parrot MiniDrones](https://www.parrot.com/us/minidrones). That includes the Rolling Spider, Airborne Cargo, Night and Hydrofoil models. Unlike other libraries that are designed to run stepped commands, this library is designed to allow continuous control through any input device.
+# Deterministically Coding Parrot Minidrones to Follow Action Sequences
 
-### [View the documentation](http://fetherston.github.io/npm-parrot-minidrone)
+This software will help you programmatically control your Parrot Minidrone. It provides two levels - an intermediate level - where you actually dabble with code - as well as a beginner level - where you specify commands within a text file.
 
-## Dependencies
-- Noble requires Xcode. Download and install the latest version from Apple's developer network
-- Node >= 6.0.0
+This project aims to demystify, for beginner drone pilots, the programmatic control of a drone - this is not magic!
 
-## Get Started in 60 Seconds
+## Requirements
+- This software requires macOS (or Linux, but the instructions for this are not included in this readme).
+- You should have a GitHub account - make one at http://www.github.com.
 
-1. Grab the module `npm install parrot-minidrone`
-1. Create `index.js` with the below code
-1. Run the script `node index.js`
+## Setting up the Dependencies
+
+### Xcode
+
+Download and install Xcode from the Mac App Store.
+
+Also install the Xcode Command Line Tools. In order to do this:
+1. Open the Terminal application
+2. Type `xcode-select --install` and hit return (enter).
+
+### Node
+While still inside a Terminal, do the following:
+
+1. Install Homebrew, if you do not have it already.
 
 ```
-const Drone = require('parrot-minidrone');
-const drone = new Drone({
-    autoconnect: true,
-});
-
-drone.on('connected', () => drone.takeOff());
-drone.on('flightStatusChange', (status) => {
-    if (status === 'hovering') {
-        drone.land();
-        process.exit();
-    }
-});
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
+2. `brew install node`
 
-## Examples
-In the examples folder of this library are a few scripts using the API to fly drones with various input devices.
+## Installing the package
 
-### Dualshock PlayStation Controller
-Follow these directions from the root of the project to fly with a PS3/4 controller
+Inside Terminal, do the following:
+1. `mkdir ~/drone_flying`
+2. `cd ~/drone_flying`
+3. Grab the module: `npm install parrot-minidrone`
+4. Get the code from this repository: `git clone https://github.com/pratyushmore/npm-parrot-minidrone.git`. You will be prompted for your username and password. There will be no output as you type in the password - this is alright.
 
-1. Turn on the drone
-1. Plug in the controller via USB or connect to your computer via Bluetooth
-1. Run `node examples/dualshock-ps3-controller/drone.js`
-1. Wait to see the drone connected message in the console output
-
-#### Control Layout
-*Button* | Function
---- | ---
-**Right Analog Stick** | Altitude, yaw
-**Left Analog Stick** | Roll, pitch
-**Square** | Flat-trim
-**Triangle** | Toggle takeoff & land
-**Circle** | Emergency landing
-**X** | Take a picture
-**L1** | Left flip
-**R1** | Right Flip
-**L2** | Front Flip
-**R2** | Back Flip
-
-### Keyboard
-To fly with the keyboard follow the below instructions.
+## Controlling the Drone Through Your Keyboard
+Let us first start by controlling the drone through a keyboard.
 
 1. Turn on the drone
-1. Run `node examples/keyboard/drone.js`
-1. Wait to see the drone connected message in the console output
+2. Go to terminal and type `cd ~/drone_flying`
+3. Run `node npm-parrot-minidrone/examples/keyboard/drone.js`
+4. Wait to see the drone connected message in the console output
+5. Use the following controls to fly the drone.
 
 #### Control Layout
 *Key* | Function
@@ -72,26 +56,23 @@ To fly with the keyboard follow the below instructions.
 **s** | Altitude +
 **a** | Yaw left
 **d** | Yaw right
+**u** | Flip Front
+**j** | Flip Back
+**h** | Flip Left
+**k** | Flip Right
 **t** | Toggle takeoff & land
 **f** | Flattrim
 **Escape** | Emergency land
 
-## Tests
-To run the test runner execute `npm test`.
+## Controlling the Drone Programmatically
 
-## Changelog
+### Running a Sample Routine
 
-### 1.1.0
-- Added support for Mambo, Blaze and New Z minidrones
-- Added support for setting max tilt, altitude, vertical speed, rotation speed and defining a drone type to connect to
+1. Activate Bluetooth for your Mac.
+2. Turn on the drone.
+3. Make sure you are a safe radialdistance away from the drone.
+4. Open Terminal and type `cd ~/drone_flying`
+5. `node npm-parrot-minidrone/examples/programmed/simple_flip.js`.
+6. Watch and Enjoy!
 
-### 1.0.3
-- Event battery change event
-- Fix issue with an error being thrown during connection on some Bluetooth devices
-
-### 1.0.2
-- Documentation
-- Unit tests
-- Flips interface
-
-![Travis Status](https://travis-ci.org/fetherston/npm-parrot-minidrone.svg?branch=master)
+### Creating Custom Routines
