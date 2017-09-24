@@ -72,7 +72,7 @@ Let us first start by controlling the drone through a keyboard.
 2. Turn on the drone.
 3. Make sure you are a safe radialdistance away from the drone.
 4. Open Terminal and type `cd ~/drone_flying`
-5. `node npm-parrot-minidrone/examples/programmed/simple_flip.js`.
+5. `node npm-parrot-minidrone/examples/programmed/simpleFlip.js`.
 6. Watch and Enjoy!
 
 ### Creating Custom Routines
