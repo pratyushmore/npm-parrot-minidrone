@@ -1,6 +1,6 @@
 # Deterministically Coding Parrot Minidrones to Follow Action Sequences
 
-This software will help you programmatically control your Parrot Minidrone. It provides two levels - an intermediate level - where you actually dabble with code - as well as a beginner level - where you specify commands within a text file.
+This software will help you programmatically control your Parrot Minidrone.
 
 This project aims to demystify, for beginner drone pilots, the programmatic control of a drone - this is not magic!
 
@@ -73,9 +73,41 @@ If the drone is simply controlled through some programming, however, we should b
 
 1. Activate Bluetooth for your Mac.
 2. Turn on the drone.
-3. Make sure you are a safe radialdistance away from the drone.
+3. Make sure you are a safe radial distance away from the drone.
 4. Open Terminal and type `cd ~/drone_flying`
 5. `node npm-parrot-minidrone/examples/programmed/simpleFlip.js`.
 6. Watch and Enjoy!
 
 ### Creating Custom Routines
+
+1. Open Terminal and type `cd ~/drone_flying`
+2. Open the file customRoutine.js in a text editor - `open npm-parrot-minidrone/customRoutine.js`.
+3. You should see an area designated for your changes.
+4. Follow the below instructions to create your custom flight routines!
+5. Save the file.
+6. Activate Bluetooth for your Mac.
+7. Turn on the drone.
+8. Make sure you are a safe radial distance away from the drone.
+9. In terminal run `node npm-parrot-minidrone/customRoutine.js`.
+10. Watch and Enjoy!
+
+#### Instructions to Create Custom routines
+
+* You need to specify what you want the drone to do once it is in the air. You do **not** need to handle the take off or landing.
+* You need to add actions to the **actions** list. You should do this in three steps:
+ 	1. Choose one of the following tasks (which are rather self explanatory):
+		* drone.forward
+		* drone.back
+		* drone.left
+		* drone.right
+		* drone.up
+		* drone.down
+		* drone.rotateLeft
+		* drone.rotateRight
+		* drone.animate (This helps make the drone do flips etc.)
+	2. Decide how long (in milliseconds) you want the drone to move in the specified direction, or in the case of animate choose from one of the following flips: "flipFront", "flipBack", "flipLeft", "flipRight".
+	3. Add an action to the list by typing: `makeAction(<<choice from 1>>, <<choice from 2>>)`
+* Example: If you want to do a front flip, followed by moving to the left for 2000 milliseconds, your **actions** list would look like the following:
+```
+var actions = [makeAction(drone.animate, "flipFront"), makeAction(drone.left, 2000)];
+```

@@ -3,11 +3,11 @@ const drone = new Drone({
 	    autoconnect: true,
 });
 
-/* ======= CHANGES START HERE ======= */
+/* ======= YOUR CHANGES START HERE ======= */
 
-var actions = [makeWithArguments(drone.left, 1000)];
+var actions = [makeAction(drone.left, 1000)];
 
-/* ======== CHANGES END HERE ======== */
+/* ======== YOUR CHANGES END HERE ======== */
 
 function landProcedure() {
 	drone.on('flightStatusChange', (status) => {
@@ -57,7 +57,7 @@ function checkFlag() {
     }
 }
 
-function makeWithArguments(f, ...args) {
+function makeAction(f, ...args) {
 	return () => {
 		f.call(drone, ...args);
 	};
