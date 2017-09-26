@@ -5,7 +5,10 @@ const drone = new Drone({
 
 /* ======= YOUR CHANGES START HERE ======= */
 
-var actions = [makeAction(drone.left, 1000)];
+var actions = [makeAction(drone.animate, "flipFront"),
+							 makeAction(drone.forward, 1000),
+							 makeAction(drone.back, 750),
+						   makeAction(drone.animate, "flipBack")];
 
 /* ======== YOUR CHANGES END HERE ======== */
 
@@ -32,7 +35,7 @@ function doAction(i) {
 					drone.removeListener('flightStatusChange', handler);
 					setTimeout(function () {
 						doAction(i + 1);
-					}, 500);
+					}, 1000);
 				}
 			});
 		});

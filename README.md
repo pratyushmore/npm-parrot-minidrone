@@ -81,9 +81,9 @@ If the drone is simply controlled through some programming, however, we should b
 ### Creating Custom Routines
 
 1. Open Terminal and type `cd ~/drone_flying`
-2. Open the file customRoutine.js in a text editor - `open npm-parrot-minidrone/customRoutine.js`.
+2. Open the file customRoutine.js - `open npm-parrot-minidrone/customRoutine.js`.
 3. You should see an area designated for your changes.
-4. Follow the below instructions to create your custom flight routines!
+4. Follow the instructions given in the following subsection to create actions for the drone!
 5. Save the file.
 6. Activate Bluetooth for your Mac.
 7. Turn on the drone.
@@ -91,7 +91,7 @@ If the drone is simply controlled through some programming, however, we should b
 9. In terminal run `node npm-parrot-minidrone/customRoutine.js`.
 10. Watch and Enjoy!
 
-#### Instructions to Create Custom routines
+#### Instructions to Create Actions
 
 * You need to specify what you want the drone to do once it is in the air. You do **not** need to handle the take off or landing.
 * You need to add actions to the **actions** list. You should do this in three steps:
@@ -105,7 +105,7 @@ If the drone is simply controlled through some programming, however, we should b
 		* drone.rotateLeft
 		* drone.rotateRight
 		* drone.animate (This helps make the drone do flips etc.)
-	2. Decide how long (in milliseconds) you want the drone to move in the specified direction, or in the case of animate choose from one of the following flips: "flipFront", "flipBack", "flipLeft", "flipRight".
+	2. Decide how long (in milliseconds) you want the drone to move in the specified direction, or in the case of _drone.animate_ choose from one of the following flips: "flipFront", "flipBack", "flipLeft", "flipRight".
 	3. Add an action to the list by typing: `makeAction(<<choice from 1>>, <<choice from 2>>)`
 * Example: If you want to do a front flip, followed by moving to the left for 2000 milliseconds, your **actions** list would look like the following:
 ```
