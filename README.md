@@ -16,7 +16,7 @@ This project aims to demystify, for beginner drone pilots, the programmatic cont
 Download and install Xcode from the Mac App Store.
 
 Also install the Xcode Command Line Tools. In order to do this:
-1. Open the Terminal application
+1. Open the Terminal application on your Mac
 2. Type `xcode-select --install` and hit return (enter).
 
 ### Node
@@ -35,7 +35,7 @@ Inside Terminal, do the following:
 1. `mkdir ~/drone_flying`
 2. `cd ~/drone_flying`
 3. Grab the module: `npm install parrot-minidrone`
-4. Get the code from this repository: `git clone https://github.com/pratyushmore/npm-parrot-minidrone.git`. You will be prompted for your username and password. There will be no output as you type in the password - this is alright.
+4. Get the code from this repository: run `git clone https://github.com/pratyushmore/npm-parrot-minidrone.git`. You will be prompted for your username and password. There will be no output as you type in the password - this is alright.
 
 ## Controlling the Drone Through Your Keyboard
 Let us first start by controlling the drone through a keyboard. Hopefully this shows you how, ultimately, the drone is simply controlled through programming. Thus we can use a computer to act as a controller as well.
@@ -67,7 +67,7 @@ Let us first start by controlling the drone through a keyboard. Hopefully this s
 
 ## Controlling the Drone Programmatically
 
-If the drone is simply controlled through some programming, however, we should be able to control it based on precoded routines, instead of having to control it real-time. This section aims to do just that - first by making you run a sample routine, and then telling you how to create your own!
+If the drone is simply controlled through some programming, we should be able to control it based on precoded routines, instead of having to control it in real-time. This section aims to do just that - first by making you run a sample routine, and then telling you how to create your own!
 
 ### Running a Sample Routine
 
@@ -75,7 +75,7 @@ If the drone is simply controlled through some programming, however, we should b
 2. Turn on the drone.
 3. Make sure you are a safe radial distance away from the drone.
 4. Open Terminal and type `cd ~/drone_flying`
-5. `node npm-parrot-minidrone/examples/programmed/simpleFlip.js`.
+5. Run `node npm-parrot-minidrone/examples/programmed/simpleFlip.js`.
 6. Watch and Enjoy!
 
 ### Creating Custom Routines
@@ -105,8 +105,8 @@ If the drone is simply controlled through some programming, however, we should b
 		* drone.rotateLeft
 		* drone.rotateRight
 		* drone.animate (This helps make the drone do flips etc.)
-	2. Decide how long (in milliseconds) you want the drone to move in the specified direction, or in the case of _drone.animate_ choose from one of the following flips: "flipFront", "flipBack", "flipLeft", "flipRight".
-	3. Add an action to the list by typing: `makeAction(<<choice from 1>>, <<choice from 2>>)`
+	2. In the case of all actions apart from _drone.animate_, decide how long (in milliseconds) you want the drone to move in the specified direction. In the case of _drone.animate_ choose from one of the following flips: "flipFront", "flipBack", "flipLeft", "flipRight".
+	3. Add an action to the list by typing: `makeAction(<choice from 1>, <choice from 2>)`
 * Example: If you want to do a front flip, followed by moving to the left for 2000 milliseconds, your **actions** list would look like the following:
 ```
 var actions = [makeAction(drone.animate, "flipFront"), makeAction(drone.left, 2000)];
