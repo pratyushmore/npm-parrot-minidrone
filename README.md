@@ -106,7 +106,7 @@ If the drone is simply controlled through some programming, we should be able to
 		* drone.rotateRight
 		* drone.animate (This helps make the drone do flips etc.)
 		* drone.takePicture
-	2. In the case of all actions apart from _drone.animate_, decide how long (in milliseconds) you want the drone to move in the specified direction. In the case of _drone.animate_ choose from one of the following flips: "flipFront", "flipBack", "flipLeft", "flipRight". In the case of drone.takePicture do not add any other arguments. Refer to the example below for a better understanding.
+	2. In the case of all actions apart from _drone.animate_, decide how long (in milliseconds) you want the drone to move in the specified direction. In the case of _drone.animate_ choose from one of the following flips: "flipFront", "flipBack", "flipLeft", "flipRight". In the case of _drone.takePicture_ do not add any other arguments. Refer to the example below for a better understanding.
 	3. Add an action to the list by typing: `makeAction(<choice from 1>, <choice from 2>)`
 * Example: If you want to do a front flip, then take a picture, followed by moving to the left for 2000 milliseconds, your **actions** list would look like the following:
 ```
